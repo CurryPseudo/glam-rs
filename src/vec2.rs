@@ -92,7 +92,7 @@ macro_rules! impl_vec2_common_traits {
     ($t:ty, $new:ident, $vec2:ident, $vec3:ident, $mask:ident, $inner:ident) => {
         /// Creates a 2-dimensional vector.
         #[inline(always)]
-        pub fn $new(x: $t, y: $t) -> $vec2 {
+        pub const fn $new(x: $t, y: $t) -> $vec2 {
             $vec2::new(x, y)
         }
 
