@@ -26,8 +26,8 @@ macro_rules! impl_vec2_common_methods {
 
         /// Creates a new vector.
         #[inline(always)]
-        pub fn new(x: $t, y: $t) -> $vec2 {
-            Self(Vector2::new(x, y))
+        pub const fn new(x: $t, y: $t) -> $vec2 {
+            Self(XY { x, y })
         }
 
         /// Creates a vector with values `[x: 1.0, y: 0.0]`.
