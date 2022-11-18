@@ -6,3 +6,6 @@ Cargo.lock
 Session.vim
 .cargo-ok
 cargo-timing*.html
+
+# Curry Personal Scripts
+*.nu

@@ -11,6 +11,9 @@ use core::{f32, ops::*};
 #[allow(unused_imports)]
 use num_traits::Float;
 
+#[cfg(feature = "rnet")]
+use rnet::*;
+
 /// Creates a 3-dimensional vector.
 #[inline(always)]
 pub const fn vec3(x: f32, y: f32, z: f32) -> Vec3 {
@@ -21,6 +24,7 @@ pub const fn vec3(x: f32, y: f32, z: f32) -> Vec3 {
 #[derive(Clone, Copy, PartialEq)]
 #[cfg_attr(not(target_arch = "spirv"), repr(C))]
 #[cfg_attr(target_arch = "spirv", repr(simd))]
+#[cfg_attr(feature = "rnet", derive(Net))]
 pub struct Vec3 {
     pub x: f32,
     pub y: f32,

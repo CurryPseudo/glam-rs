@@ -11,6 +11,9 @@ use core::{f32, ops::*};
 #[allow(unused_imports)]
 use num_traits::Float;
 
+#[cfg(feature = "rnet")]
+use rnet::*;
+
 /// Creates a 2-dimensional vector.
 #[inline(always)]
 pub const fn vec2(x: f32, y: f32) -> Vec2 {
@@ -22,6 +25,7 @@ pub const fn vec2(x: f32, y: f32) -> Vec2 {
 #[cfg_attr(feature = "cuda", repr(align(8)))]
 #[cfg_attr(not(target_arch = "spirv"), repr(C))]
 #[cfg_attr(target_arch = "spirv", repr(simd))]
+#[cfg_attr(feature = "rnet", derive(Net))]
 pub struct Vec2 {
     pub x: f32,
     pub y: f32,
