@@ -7,6 +7,9 @@ use core::fmt;
 use core::iter::{Product, Sum};
 use core::{f32, ops::*};
 
+#[cfg(feature = "rnet")]
+use rnet::*;
+
 /// Creates a 2-dimensional vector.
 #[inline(always)]
 pub const fn uvec2(x: u32, y: u32) -> UVec2 {
@@ -19,6 +22,7 @@ pub const fn uvec2(x: u32, y: u32) -> UVec2 {
 #[cfg_attr(feature = "cuda", repr(align(8)))]
 #[cfg_attr(not(target_arch = "spirv"), repr(C))]
 #[cfg_attr(target_arch = "spirv", repr(simd))]
+#[cfg_attr(feature = "rnet", derive(Net))]
 pub struct UVec2 {
     pub x: u32,
     pub y: u32,
